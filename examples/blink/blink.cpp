@@ -15,6 +15,7 @@ void setup() {
   state = HIGH;
   pinMode(LED_PIN, OUTPUT); 
   t.init(1000, blink);
+  t.start();
 }
 
 void loop() {
