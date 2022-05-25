@@ -1,0 +1,16 @@
+{
+    "name": "WizardTimer",
+    "version": "1.0.0",
+    "keywords": "arduino, timer, events, methods, procedures",
+    "description": "A library to manage timers and subscribed procedures",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WizMe-M/WizardTimer.git"
+    },
+    "authors": {
+        "name": "Timkin Maxim"
+    },
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "atmelavr"
+}
