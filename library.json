@@ -1,6 +1,6 @@
 {
     "name": "WizardTimer",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "keywords": "arduino, timer, events, methods, procedures",
     "description": "A library to manage timers and subscribed procedures",
     "repository": {

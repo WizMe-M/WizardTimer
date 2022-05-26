@@ -30,13 +30,14 @@ public:
         this->pauseInterval = period;
         this->callback = callback;
         this->repeatCount = repeatCount;
+        currentCount = 0;
+        wasPaused = false;
     }
 
     // Обновление таймера, вызывать в `loop`
     void update(void)
     {
-        unsigned long now = millis();
-        if (state == Run && now - lastMillis >= pauseInterval)
+        if (state == Run && millis() - lastMillis >= pauseInterval)
         {
             if (wasPaused)
             {
@@ -45,12 +46,12 @@ public:
             }
 
             (*callback)();
-            lastMillis = now;
+            lastMillis = millis();
             currentCount++;
 
             if (repeatCount > FOREVER && currentCount >= repeatCount)
             {
-                state = Stop;
+                stop();
             }
         }
     }
@@ -68,7 +69,7 @@ public:
         if (state == Run)
         {
             state = Pause;
-            pauseInterval = period - (millis() - lastMillis);
+            pauseInterval = period;// - (millis() - lastMillis); wtf
             wasPaused = true;
         }
     }
@@ -86,7 +87,7 @@ private:
     // Текущее состояние таймера
     TimerStates state;
 
-    // Время последнего тика таймера
+    // Время с последнего тика таймера
     unsigned long lastMillis;
 
     // Был ли таймер поставлен на паузу
